@@ -8,6 +8,7 @@ class WebContentAdmin(admin.ModelAdmin):
     list_display = ('key', 'date_modified')
     search_fields = ('key', 'text')
     readonly_fields = ('key', 'date_modified')
+    exclude = ('image', )
 
     def has_add_permission(self, request):
         return False

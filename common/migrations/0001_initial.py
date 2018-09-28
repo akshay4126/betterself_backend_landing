@@ -20,5 +20,6 @@ class Migration(migrations.Migration):
                 ('image', models.ImageField(blank=True, null=True, upload_to='', verbose_name='image')),
                 ('date_modified', models.DateTimeField(auto_now=True, verbose_name='date modified')),
             ],
+            options={'verbose_name': 'Web content block', 'verbose_name_plural': 'Web content blocks'},
         ),
     ]
