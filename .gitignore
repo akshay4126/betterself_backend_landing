@@ -1,0 +1,16 @@
+.env
+.DS_Store
+*.pyc
+.idea
+.pytest_cache
+db.sqlite3
+*.pem
+/env
+/static
+/media
+/logs/*
+celery-schedule.db
+celerybeat-schedule.db
+celerybeat.pid
+celerybeat-schedule
+settings/local.py
