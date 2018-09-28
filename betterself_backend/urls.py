@@ -20,6 +20,7 @@ from django.urls import include, path
 from django.conf.urls.static import static
 from rest_framework_swagger.views import get_swagger_view
 
+from common.routes import common_router
 from user.routes import user_router
 
 schema_view = get_swagger_view(title='Augmented Review API')
@@ -27,6 +28,7 @@ schema_view = get_swagger_view(title='Augmented Review API')
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api/common/', include(common_router.urls)),
     url(r'^api/user/', include(user_router.urls)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
