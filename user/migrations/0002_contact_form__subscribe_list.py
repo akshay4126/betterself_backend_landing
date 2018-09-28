@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
                 ('invited', models.BooleanField(default=False, verbose_name='invited')),
             ],
             options={
-                'verbose_name_plural': 'Android wait list',
+                'verbose_name_plural': 'Subscribe list',
             },
         ),
         migrations.AlterUniqueTogether(

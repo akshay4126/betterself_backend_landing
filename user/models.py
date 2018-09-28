@@ -86,7 +86,7 @@ class SubscribeList(models.Model):
 
     class Meta:
         unique_together = ('email', 'token')
-        verbose_name_plural = 'Android wait list'
+        verbose_name_plural = 'Subscribe list'
 
     def __str__(self):
         return str(self.email)
