@@ -5,10 +5,12 @@ from django.test import TestCase
 from django.urls import reverse
 from django.conf import settings
 from django.core.cache import cache
+from django.core.management import call_command
 from rest_framework import status
 from rest_framework.test import APIClient, APITestCase
 
 from common.utils import TEST_PATH, random_string
+from common.constants import WEB_CONTENT_BLOCKS
 from user.models import User
 from user.tests.factories import UserFactory
 
@@ -59,3 +61,18 @@ class BaseViewTests(BaseTestCase, APITestCase):
         else:
             admin_user = UserFactory(is_active=True, is_staff=True)
         self.client.force_authenticate(admin_user)
+
+
+class WebContentViewTest(BaseViewTests):
+    def test_crud(self):
+        url_list = reverse('web-content-list')
+        call_command('load_web_content_fixtures')
+
+        response = self.client.post(url_list)
+        self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
+
+        response = self.client.get(url_list)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        keys = {i['key'] for i in response.data}
+        for block in WEB_CONTENT_BLOCKS:
+            self.assertIn(block['key'], keys)
