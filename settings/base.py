@@ -20,7 +20,7 @@ from django.core.exceptions import ImproperlyConfigured
 
 
 def str2bool(v):
-    return isinstance(v, str) and v.lower() in ("yes", "true", "t", "1")
+    return isinstance(v, str) and v.lower() in ('yes', 'true', 't', '1')
 
 
 def from_env(name, default=''):
@@ -69,6 +69,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_swagger',
     'corsheaders',
+    'ckeditor',
+    'ckeditor_uploader',
 
     'common',
     'user',
@@ -185,6 +187,9 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 FILE_UPLOAD_PERMISSIONS = 0o644
+
+CKEDITOR_BASEPATH = f'{STATIC_URL}ckeditor/ckeditor/'
+CKEDITOR_UPLOAD_PATH = 'ckeditor_uploads/'
 
 # Email settings
 EMAIL_USE_TLS = True
