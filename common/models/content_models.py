@@ -8,5 +8,9 @@ class WebContent(models.Model):
     image = models.ImageField(null=True, blank=True, verbose_name=_('image'))
     date_modified = models.DateTimeField(auto_now=True, verbose_name=_('date modified'))
 
+    class Meta:
+        verbose_name = "Web content block"
+        verbose_name_plural = "Web content blocks"
+
     def __str__(self):
         return str(self.key)
