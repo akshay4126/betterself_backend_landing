@@ -28,6 +28,10 @@ def random_string(n=16):
     return ''.join(random.choice(choices) for _ in range(n))
 
 
+def random_email():
+    return f'{random_string()}@test.com'
+
+
 def make_path(pattern, name=None):
     now = datetime.now()
     key1 = hashlib.md5(f'{now.year}{now.month}'.encode()).hexdigest()[:6]
