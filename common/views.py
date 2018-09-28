@@ -13,3 +13,4 @@ class WebContentView(ListModelMixin, GenericViewSet):
 class WebContentEditorView(ListModelMixin, GenericViewSet):
     queryset = WebContentEditor.objects.all()
     serializer_class = WebContentEditorSerializer
+    filter_fields = ['key']
