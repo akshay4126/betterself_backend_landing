@@ -30,7 +30,7 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api/common/', include(common_router.urls)),
     url(r'^api/user/', include(user_router.urls)),
-    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    url(r'^api/ckeditor/', include('ckeditor_uploader.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
