@@ -76,3 +76,27 @@ class User(AbstractBaseUser, PermissionsMixin):
     @staticmethod
     def gen_token():
         return gen_user_token()
+
+
+class SubscribeList(models.Model):
+    email = models.EmailField(verbose_name=_('email'))
+    token = models.CharField(default=gen_user_token, max_length=20, verbose_name=_('token'))
+    date_created = models.DateTimeField(default=timezone.now, verbose_name=_('date created'))
+    invited = models.BooleanField(default=False, verbose_name=_('invited'))
+
+    class Meta:
+        unique_together = ('email', 'token')
+        verbose_name_plural = 'Subscribe list'
+
+    def __str__(self):
+        return str(self.email)
+
+
+class ContactForm(models.Model):
+    email = models.EmailField(verbose_name=_('email'))
+    name = models.CharField(max_length=128, verbose_name=_('name'))
+    message = models.TextField(verbose_name=_('message'))
+    date_created = models.DateTimeField(default=timezone.now, verbose_name=_('date created'))
+
+    def __str__(self):
+        return str(self.email)
