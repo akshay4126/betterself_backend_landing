@@ -12,13 +12,13 @@ server {
   }
 
   location ^~ /static_backend/ {
-    alias /home/ubuntu/augmented-review-backend/static/;
+    alias /home/ubuntu/betterself_backend/static/;
   }
 
   location /media {
     add_header "Access-Control-Allow-Origin" "$http_origin";
     add_header "Access-Control-Allow-Credentials" "true";
-    root /home/ubuntu/augmented-review-backend/;
+    root /home/ubuntu/betterself_backend/;
   }
 
   client_max_body_size 250M;
