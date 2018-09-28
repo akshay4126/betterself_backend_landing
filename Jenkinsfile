@@ -2,9 +2,9 @@ node {
 
   def folder = 'betterself_backend'
   def branches = [
-    'develop': [
-      'host': 'develop.betterself.today',
-      'url': 'https://develop.betterself.today/',
+    'master': [
+      'host': 'betterself.today',
+      'url': 'https://betterself.today/',
       'pem': '/var/lib/jenkins/betterself-dev.pem'
     ],
   ]
