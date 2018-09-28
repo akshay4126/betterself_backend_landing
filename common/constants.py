@@ -15,3 +15,7 @@ WEB_CONTENT_BLOCKS = (
     {'key': 'feature3-description'},
     {'key': 'footer-header'},
 )
+
+WEB_CONTENT_EDITOR = (
+    {'key': 'about'},
+)

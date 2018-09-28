@@ -10,7 +10,7 @@ from rest_framework import status
 from rest_framework.test import APIClient, APITestCase
 
 from common.utils import TEST_PATH, random_string
-from common.constants import WEB_CONTENT_BLOCKS
+from common.constants import WEB_CONTENT_BLOCKS, WEB_CONTENT_EDITOR
 from user.models import User
 from user.tests.factories import UserFactory
 
@@ -65,7 +65,7 @@ class BaseViewTests(BaseTestCase, APITestCase):
 
 class WebContentViewTest(BaseViewTests):
     def test_crud(self):
-        url_list = reverse('web-content-list')
+        url_list = reverse('web-content-blocks-list')
         call_command('load_web_content_fixtures')
 
         response = self.client.post(url_list)
@@ -75,4 +75,19 @@ class WebContentViewTest(BaseViewTests):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         keys = {i['key'] for i in response.data}
         for block in WEB_CONTENT_BLOCKS:
+            self.assertIn(block['key'], keys)
+
+
+class WebContentEditorViewTest(BaseViewTests):
+    def test_crud(self):
+        url_list = reverse('web-content-editor-list')
+        call_command('load_web_content_fixtures')
+
+        response = self.client.post(url_list)
+        self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
+
+        response = self.client.get(url_list)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        keys = {i['key'] for i in response.data}
+        for block in WEB_CONTENT_EDITOR:
             self.assertIn(block['key'], keys)
