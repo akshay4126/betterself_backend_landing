@@ -30,7 +30,7 @@ node {
       sudo python3.6 manage.py collectstatic --noinput
 
       sudo python3.6 deploy/update_config.py --conf celery
-      sudo python3.6 deploy/update_config.py --conf nginx --host ''' + host + '''
+      sudo python3.6 deploy/update_config.py --conf nginx --branch ''' + branchName + ''' --host ''' + host + '''
       sudo cp deploy/confs/betterself_super.conf /etc/supervisor/conf.d/
 
       sudo service supervisor restart
