@@ -14,11 +14,11 @@ WEB_CONTENT_BLOCKS = (
     {'key': 'feature3-header'},
     {'key': 'feature3-description'},
     {'key': 'footer-header'},
-    {'key': 'main-title'},
-    {'key': 'main-description'},
-    {'key': 'about-title'},
-    {'key': 'about-description'},
-    {'key': 'about-h1'},
+    {'key': 'seo-main-title'},
+    {'key': 'seo-main-description'},
+    {'key': 'seo-about-title'},
+    {'key': 'seo-about-description'},
+    {'key': 'seo-about-h1'},
 )
 
 WEB_CONTENT_EDITOR = (
