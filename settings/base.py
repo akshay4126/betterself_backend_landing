@@ -190,6 +190,30 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 
 CKEDITOR_BASEPATH = f'{STATIC_URL}ckeditor/ckeditor/'
 CKEDITOR_UPLOAD_PATH = 'ckeditor_uploads/'
+CKEDITOR_CONFIGS = {
+    'default':
+        {
+            'skin': 'moono-lisa',
+            'toolbar_Basic': [
+                ['Source', '-', 'Bold', 'Italic']
+            ],
+            'toolbar_Full': [
+                ['Styles', 'Format', 'Bold', 'Italic', 'Underline', 'Strike', 'SpellChecker'],
+                ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'],
+                ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+                ['Link', 'Unlink', 'Anchor'],
+                ['Image', 'Flash', 'Table', 'HorizontalRule'],
+                ['TextColor', 'BGColor'],
+                ['Smiley', 'SpecialChar'],
+                ['Source'],
+            ],
+            'toolbar': 'Full',
+            'height': 400,
+            'width': 1000,
+            'filebrowserWindowWidth': 940,
+            'filebrowserWindowHeight': 725,
+        }
+}
 
 # Email settings
 EMAIL_USE_TLS = True
