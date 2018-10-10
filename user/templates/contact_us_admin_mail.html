@@ -1,0 +1,10 @@
+{% extends "base_mail.html" %}
+
+{% block content %}
+<tr></tr>
+<tr><td>New 'Contact Us' request:</td></tr>
+<tr><td>Email: {{ email }}</td></tr>
+<tr><td>Name: {{ name }}</td></tr>
+<tr><td>Date created: {{ date_created }}</td></tr>
+<tr><td>Message: <i>{{ message }}</i></td></tr>
+{% endblock %}

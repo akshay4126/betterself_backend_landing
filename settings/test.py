@@ -1,7 +1,12 @@
 import os
 
+from celery.app.task import Task
+
 
 DEBUG = True
+
+# Disable sending tasks in test mode.
+Task.delay = lambda *args, **kwargs: None
 
 SITE_URL = 'http://testserver'
 
