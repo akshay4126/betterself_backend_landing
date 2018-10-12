@@ -21,6 +21,10 @@ server {
     proxy_pass http://127.0.0.1:8080;
   }
 
+  location /robots.txt {
+    alias /home/ubuntu/betterself_backend/static/robots-dev.txt;
+  }
+
   location ^~ /static_backend/ {
     alias /home/ubuntu/betterself_backend/static/;
   }

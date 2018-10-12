@@ -22,7 +22,7 @@ server {
   }
 
   location /robots.txt {
-    alias /home/ubuntu/betterself_backend/static/robots.txt;
+    alias /home/ubuntu/betterself_backend/static/robots-prod.txt;
   }
 
   location ^~ /static_backend/ {
