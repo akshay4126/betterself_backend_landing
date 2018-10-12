@@ -3,7 +3,7 @@ server {
   listen 80;
   listen 443 ssl;
 
-  location ~ /(api|api-auth|admin|docs)/ {
+  location ~ (/api/|/api-auth/|/admin/|/docs/|/sitemap.xml) {
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header X-Forwarded-Proto $scheme;
     proxy_set_header X-Url-Scheme $scheme;
