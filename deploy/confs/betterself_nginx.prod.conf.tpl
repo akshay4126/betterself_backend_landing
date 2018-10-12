@@ -3,7 +3,7 @@ server {
   listen 80;
   listen 443 ssl;
 
-  location ~ /(api|api-auth|admin|docs)/ {
+  location ~ /(api|api-auth|admin)/ {
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header X-Forwarded-Proto $scheme;
     proxy_set_header X-Url-Scheme $scheme;
@@ -19,6 +19,10 @@ server {
     proxy_set_header Host $http_host;
     proxy_redirect off;
     proxy_pass http://127.0.0.1:8080;
+  }
+
+  location /robots.txt {
+    alias /home/ubuntu/betterself_backend/static/robots.txt;
   }
 
   location ^~ /static_backend/ {
