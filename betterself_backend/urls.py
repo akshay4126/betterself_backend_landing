@@ -18,12 +18,18 @@ from django.conf import settings
 from django.conf.urls import url
 from django.urls import include, path
 from django.conf.urls.static import static
+from django.contrib.sitemaps.views import sitemap
 from rest_framework_swagger.views import get_swagger_view
 
+from betterself_backend import sitemaps
 from common.routes import common_router
 from user.routes import user_router
 
 schema_view = get_swagger_view(title='Augmented Review API')
+
+_sitemaps = {
+    'static': sitemaps.StaticViewSitemap,
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,6 +37,7 @@ urlpatterns = [
     url(r'^api/common/', include(common_router.urls)),
     url(r'^api/user/', include(user_router.urls)),
     url(r'^api/ckeditor/', include('ckeditor_uploader.urls')),
+    path('sitemap.xml', sitemap, {'sitemaps': _sitemaps}, name='django.contrib.sitemaps.views.sitemap')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
