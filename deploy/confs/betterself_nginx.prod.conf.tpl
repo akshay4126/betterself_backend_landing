@@ -63,30 +63,30 @@ server {
     return 301 https://betterself.today$request_uri;
 }
 
-server {
-    server_name betterself.app;
-    listen 80;
-    return 301 https://betterself.today$request_uri;
-}
+# server {
+#     server_name betterself.app;
+#     listen 80;
+#     return 301 https://betterself.today$request_uri;
+# }
 
-server {
-    server_name betterself.app;
-    listen 443 ssl;
-    ssl_certificate /etc/letsencrypt/live/betterself.app/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/betterself.app/privkey.pem; # managed by Certbot
-    return 301 https://betterself.today$request_uri;
-}
+# server {
+#     server_name betterself.app;
+#     listen 443 ssl;
+#     ssl_certificate /etc/letsencrypt/live/betterself.app/fullchain.pem; # managed by Certbot
+#     ssl_certificate_key /etc/letsencrypt/live/betterself.app/privkey.pem; # managed by Certbot
+#     return 301 https://betterself.today$request_uri;
+# }
 
-server {
-    server_name www.betterself.app;
-    listen 80;
-    return 301 https://betterself.today$request_uri;
-}
+# server {
+#     server_name www.betterself.app;
+#     listen 80;
+#     return 301 https://betterself.today$request_uri;
+# }
 
-server {
-    server_name www.betterself.app;
-    listen 443 ssl;
-    ssl_certificate /etc/letsencrypt/live/www.betterself.app/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/www.betterself.app/privkey.pem; # managed by Certbot
-    return 301 https://betterself.today$request_uri;
-}
+# server {
+#     server_name www.betterself.app;
+#     listen 443 ssl;
+#     ssl_certificate /etc/letsencrypt/live/www.betterself.app/fullchain.pem; # managed by Certbot
+#     ssl_certificate_key /etc/letsencrypt/live/www.betterself.app/privkey.pem; # managed by Certbot
+#     return 301 https://betterself.today$request_uri;
+# }
